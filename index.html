@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mateus Barber | Agendamento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div class="hero__content">
+          <span class="eyebrow">Agenda premium</span>
+          <h1>Mateus Barber</h1>
+          <p>Cortes alinhados, barba desenhada e atendimento no horário certo.</p>
+          <a class="ghost-link" href="admin.html">Painel admin</a>
+        </div>
+      </section>
+
+      <section class="booking-layout">
+        <aside class="services-panel">
+          <div class="section-heading">
+            <span>Serviços</span>
+            <h2>Escolha seu corte</h2>
+          </div>
+          <div id="servicesList" class="services-list" aria-label="Lista de serviços"></div>
+        </aside>
+
+        <section class="booking-panel">
+          <div class="section-heading">
+            <span>Agendamento</span>
+            <h2>Reserve seu horário</h2>
+          </div>
+
+          <form id="bookingForm" class="form-grid">
+            <label class="field">
+              <span>Data</span>
+              <input id="bookingDate" type="date" required />
+            </label>
+
+            <div class="field field--full">
+              <span>Horários disponíveis</span>
+              <div id="timeSlots" class="time-slots" aria-live="polite"></div>
+            </div>
+
+            <label class="field">
+              <span>Nome</span>
+              <input id="customerName" type="text" placeholder="Seu nome" required />
+            </label>
+
+            <label class="field">
+              <span>Endereço / local</span>
+              <input id="customerLocation" type="text" placeholder="Barbearia, casa ou referência" required />
+            </label>
+
+            <label class="field field--full">
+              <span>Observação</span>
+              <textarea id="customerNote" rows="4" placeholder="Algum detalhe sobre o corte, atraso ou preferência?"></textarea>
+            </label>
+
+            <button class="primary-button field--full" type="submit">Agendar horário</button>
+          </form>
+
+          <p id="bookingFeedback" class="feedback" role="status"></p>
+        </section>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

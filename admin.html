@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mateus Barber | Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="admin-shell">
+      <section id="loginView" class="login-card">
+        <span class="eyebrow">Acesso restrito</span>
+        <h1>Mateus Barber</h1>
+        <p>Entre para acompanhar agenda, faturamento e horários.</p>
+        <form id="loginForm" class="stack-form">
+          <label class="field">
+            <span>Senha</span>
+            <input id="adminPassword" type="password" placeholder="Digite a senha" required />
+          </label>
+          <button class="primary-button" type="submit">Entrar no painel</button>
+          <small>Senha padrão: <strong>mateus123</strong>. Altere em <code>supabase-config.js</code>.</small>
+        </form>
+      </section>
+
+      <section id="dashboardView" class="dashboard is-hidden">
+        <header class="dashboard-header">
+          <div>
+            <span class="eyebrow">Dashboard</span>
+            <h1>Mateus Barber</h1>
+          </div>
+          <div class="header-actions">
+            <a class="ghost-button" href="index.html">Ver cliente</a>
+            <button id="logoutButton" class="ghost-button" type="button">Sair</button>
+          </div>
+        </header>
+
+        <section class="stats-grid">
+          <article class="stat-card">
+            <span>Faturamento diário</span>
+            <strong id="dailyRevenue">R$ 0,00</strong>
+          </article>
+          <article class="stat-card">
+            <span>Cortes realizados</span>
+            <strong id="completedCount">0</strong>
+          </article>
+          <article class="stat-card">
+            <span>Agendados hoje</span>
+            <strong id="todayCount">0</strong>
+          </article>
+        </section>
+
+        <section class="admin-grid">
+          <article class="admin-panel">
+            <div class="section-heading">
+              <span>Horários</span>
+              <h2>Disponibilidade</h2>
+            </div>
+            <form id="slotForm" class="slot-form">
+              <input id="newSlot" type="time" required />
+              <button class="secondary-button" type="submit">Adicionar</button>
+            </form>
+            <div id="slotsAdminList" class="chips-list"></div>
+          </article>
+
+          <article class="admin-panel">
+            <div class="section-heading">
+              <span>Agenda</span>
+              <h2>Agendamentos</h2>
+            </div>
+            <label class="field compact-field">
+              <span>Filtrar data</span>
+              <input id="adminDate" type="date" />
+            </label>
+            <div id="appointmentsList" class="appointments-list"></div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>
